@@ -1,1 +1,4 @@
 project_id = "jqpfrekrdyvgpcfssxyp"
+
+[functions.categorize-issue]
+verify_jwt = false
