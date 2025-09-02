@@ -14,7 +14,125 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      departments: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      issues: {
+        Row: {
+          address: string
+          ai_category: string | null
+          ai_confidence: number | null
+          assigned_at: string | null
+          category: string | null
+          created_at: string
+          department_id: string | null
+          description: string
+          id: string
+          image_url: string
+          latitude: number
+          longitude: number
+          resolved_at: string | null
+          status: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address: string
+          ai_category?: string | null
+          ai_confidence?: number | null
+          assigned_at?: string | null
+          category?: string | null
+          created_at?: string
+          department_id?: string | null
+          description: string
+          id?: string
+          image_url: string
+          latitude: number
+          longitude: number
+          resolved_at?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          address?: string
+          ai_category?: string | null
+          ai_confidence?: number | null
+          assigned_at?: string | null
+          category?: string | null
+          created_at?: string
+          department_id?: string | null
+          description?: string
+          id?: string
+          image_url?: string
+          latitude?: number
+          longitude?: number
+          resolved_at?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "issues_department_id_fkey"
+            columns: ["department_id"]
+            isOneToOne: false
+            referencedRelation: "departments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          role?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
